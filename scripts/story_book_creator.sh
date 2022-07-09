@@ -3,6 +3,9 @@
 # Description:
 #     Command to create a storybook from component names.
 #
+# Usage:
+#     $ source story_book_creator.sh <component_name> [options]
+#
 # Options:
 #     -a, --atoms: atoms
 #     -m, --molecules: molecules
@@ -11,7 +14,7 @@
 #     -p, --pages: pages
 #     -c, --custom <custom_name>: custom
 #
-# Usage:
+# Examples:
 #     $ source story_book_creator.sh YourComponent -a
 #     $ source story_book_creator.sh YourComponent -c customComponentUnit
 
