@@ -16,7 +16,9 @@ $ # Edit python/scraping/conf.py
 $ sphinx-build ./scraping/docs ./scraping/docs/_build
 ```
 
-## Edit `python/scraping/conf.py`
+## Make a few changes to the file
+
+**`python/scraping/conf.py`**
 
 ### Change 1
 
