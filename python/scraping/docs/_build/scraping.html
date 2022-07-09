@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>scraping module &#8212; project v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="settings module" href="settings.html" />
+    <link rel="prev" title="Welcome to project’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-scraping">
+<span id="scraping-module"></span><h1>scraping module<a class="headerlink" href="#module-scraping" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="scraping.ArticleData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">ArticleData</span></span><a class="headerlink" href="#scraping.ArticleData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.ArticleData.category">
+<span class="sig-name descname"><span class="pre">category</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#scraping.ArticleData.category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.ArticleData.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#scraping.ArticleData.date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.ArticleData.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#scraping.ArticleData.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.ArticleData.url">
+<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#scraping.ArticleData.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="scraping.Job">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">Job</span></span><a class="reference internal" href="_modules/scraping.html#Job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Job class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Job.count">
+<span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#scraping.Job.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>count of job</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Job.done">
+<span class="sig-name descname"><span class="pre">done</span></span><a class="headerlink" href="#scraping.Job.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>whether job is done</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Job.loading">
+<span class="sig-name descname"><span class="pre">loading</span></span><a class="reference internal" href="_modules/scraping.html#Job.loading"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Job.loading" title="Permalink to this definition">¶</a></dt>
+<dd><p>loading message</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scraping.Job.get_article_data">
+<span class="sig-name descname"><span class="pre">get_article_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/scraping.html#Job.get_article_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Job.get_article_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>get article data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">loading</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/scraping.html#Job.loading"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>loading message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="scraping.Scraping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">Scraping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scraping.html#Scraping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Scraping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Scraping class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Scraping.url">
+<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#scraping.Scraping.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>url to scrape</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Scraping.html">
+<span class="sig-name descname"><span class="pre">html</span></span><a class="headerlink" href="#scraping.Scraping.html" title="Permalink to this definition">¶</a></dt>
+<dd><p>html of url</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Scraping.soup">
+<span class="sig-name descname"><span class="pre">soup</span></span><a class="headerlink" href="#scraping.Scraping.soup" title="Permalink to this definition">¶</a></dt>
+<dd><p>soup of html</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="scraping.Scraping.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#scraping.Scraping.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>data of html</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scraping.Scraping.from_class">
+<span class="sig-name descname"><span class="pre">from_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#scraping.Scraping" title="scraping.Scraping"><span class="pre">Scraping</span></a></span></span><a class="reference internal" href="_modules/scraping.html#Scraping.from_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Scraping.from_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>get html from class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>class_name</strong> – class name to scrape</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scraping object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scraping.Scraping.get_href">
+<span class="sig-name descname"><span class="pre">get_href</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/scraping.html#Scraping.get_href"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Scraping.get_href" title="Permalink to this definition">¶</a></dt>
+<dd><p>get href from html</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of hrefs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scraping.Scraping.get_text">
+<span class="sig-name descname"><span class="pre">get_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/scraping.html#Scraping.get_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.Scraping.get_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>get text from html</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of text</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scraping.csv_writer">
+<span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">csv_writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#scraping.ArticleData" title="scraping.ArticleData"><span class="pre">ArticleData</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/scraping.html#csv_writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.csv_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>write data to csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – list of article data</p></li>
+<li><p><strong>filename</strong> – filename to write to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scraping.get_content">
+<span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">get_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scraping.html#get_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.get_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>get content from url and class name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> – url to scrape</p></li>
+<li><p><strong>class_name</strong> – class name to scrape</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>?</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scraping.gigazine">
+<span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">gigazine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scraping.html#gigazine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.gigazine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scraping.tech_plus">
+<span class="sig-prename descclassname"><span class="pre">scraping.</span></span><span class="sig-name descname"><span class="pre">tech_plus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scraping.html#tech_plus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scraping.tech_plus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">project</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">scraping module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">settings module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to project’s documentation!</a></li>
+      <li>Next: <a href="settings.html" title="next chapter">settings module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Helve.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/scraping.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
