@@ -4,7 +4,7 @@
 #     Command to create a storybook from component names.
 #
 # Usage:
-#     $ source story_book_creator.sh <component_name> [options]
+#     $ source storybook_creator.sh <component_name> [options]
 #
 # Options:
 #     -a, --atoms: atoms
@@ -15,8 +15,8 @@
 #     -c, --custom <custom_name>: custom
 #
 # Examples:
-#     $ source story_book_creator.sh YourComponent -a
-#     $ source story_book_creator.sh YourComponent -c customComponentUnit
+#     $ source storybook_creator.sh YourComponent -a
+#     $ source storybook_creator.sh YourComponent -c customComponentUnit
 
 template="import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
