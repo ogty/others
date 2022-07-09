@@ -1,8 +1,11 @@
 from __future__ import annotations
 import csv
+import itertools
 import os
 import re
+import sys
 import time
+import threading
 from typing import TypedDict, List
 from urllib.parse import urljoin
 
@@ -20,6 +23,7 @@ ArticleData = TypedDict("ArticleData", {
     "category": str,
 })
 
+FIELD_NAMES = [k for k in ArticleData.__annotations__.keys()]
 
 class Scraping:
 
@@ -53,8 +57,15 @@ def get_content(url: str, class_name: str):
     return decorator
 
 
+def csv_writer(data: List[ArticleData], filename: str) -> None:
+    with open(f"{os.path.join(DATA_DIR, filename)}.csv", "w", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELD_NAMES)
+        writer.writeheader()
+        writer.writerows(data)
+
+
 @get_content("https://gigazine.net/", "card")
-def gigazine(*args) -> List[str]:
+def gigazine(*args) -> None:
     article_contents = args[0]
     article_hrefs = args[1]
 
@@ -80,11 +91,11 @@ def gigazine(*args) -> List[str]:
         ))
         data_counter += 1
 
-    return result
+    csv_writer(result, "gigazine")
 
 
 @get_content("https://news.mynavi.jp/techplus/list/headline/", "c-archiveList_listNode")
-def tech_plus(*args) -> List[str]:
+def tech_plus(*args) -> None:
     article_contents = args[0]
     article_hrefs = args[1]
     base_url = "https://news.mynavi.jp"
@@ -104,20 +115,51 @@ def tech_plus(*args) -> List[str]:
         ))
         data_counter += 1
 
-    return result
+    csv_writer(result, "tech_plus")
 
 
-def job() -> None:
-    result = gigazine()
-    with open(os.path.join(DATA_DIR, "gigazine.csv"), "w", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["title", "url", "date", "category"])
-        writer.writeheader()
-        writer.writerows(result)
+class Job:
+
+    def __init__(self) -> None:
+        self.done = False
+        self.count = 0
+        self.unicode_braille_pattern_dots = [
+            b"\\u28F7",
+            b"\\u28EF",
+            b"\\u28DF",
+            b"\\u287F",
+            b"\\u28BF",
+            b"\\u28FB",
+            b"\\u28FD",
+            b"\\u28FE",
+        ]
+
+    def loading(self) -> None:
+        for c in itertools.cycle(self.unicode_braille_pattern_dots):
+            if self.done:
+                break
+
+            sys.stdout.write(f'\rloading{self.count} ' + c.decode('unicode-escape'))
+            sys.stdout.flush()
+            time.sleep(0.1)
+
+    def get_article_data(self) -> None:
+        self.count += 1
+        self.done = True
+
+        gigazine()
+        tech_plus()
+
+        self.done = False
+        t = threading.Thread(target=self.loading)
+        t.start()
 
 
 if __name__ == "__main__":
-    job()
-    schedule.every(1).hour.do(job)
+    job = Job()
+    job.get_article_data()
+
+    schedule.every(1).hour.do(job.get_article_data)
     while True:
         schedule.run_pending()
         time.sleep(1)
