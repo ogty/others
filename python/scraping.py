@@ -22,8 +22,8 @@ ArticleData = TypedDict("ArticleData", {
     "date": str, 
     "category": str,
 })
-
 FIELD_NAMES = [k for k in ArticleData.__annotations__.keys()]
+
 
 class Scraping:
 
