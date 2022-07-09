@@ -1,6 +1,10 @@
 # Scraping
 
-Scraping program for learning decorators and Sphinx
+Programs for learning about
+
+- decorators
+- Sphinx
+- Loading
 
 ## Creating a document from a docstring
 
