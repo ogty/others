@@ -137,12 +137,8 @@ def gigazine(*args) -> None:
         None
 
     """
-    article_contents = args[0]
-    article_hrefs = args[1]
-
     result: List[ArticleData] = []
-    data_counter = 0
-    for article_content in article_contents:
+    for article_content, article_href in zip(*args):
         filtered_data = list(filter(lambda x: x, article_content.split("\n"))) 
         if len(filtered_data) == 1:
             continue
@@ -156,11 +152,10 @@ def gigazine(*args) -> None:
 
         result.append(ArticleData(
             title=title, 
-            url=article_hrefs[data_counter], 
+            url=article_href, 
             date=date[0], 
             category=category,
         ))
-        data_counter += 1
 
     csv_writer(result, "gigazine")
 
@@ -176,24 +171,20 @@ def tech_plus(*args) -> None:
         None
 
     """
-    article_contents = args[0]
-    article_hrefs = args[1]
     base_url = "https://news.mynavi.jp"
 
     result: List[ArticleData] = []
-    data_counter = 0
-    for article_content in article_contents:
+    for article_content, article_href in zip(*args):
         filtered_data = list(filter(lambda x: x, article_content.split("\n"))) 
         filtered_data = list(map(lambda x: x.replace(" ", ""), filtered_data))
         filtered_data = list(filter(lambda x: x, filtered_data))
 
         result.append(ArticleData(
             title=filtered_data[1],
-            url=urljoin(base_url, article_hrefs[data_counter]),
+            url=urljoin(base_url, article_href),
             date=filtered_data[2],
             category=filtered_data[0],
         ))
-        data_counter += 1
 
     csv_writer(result, "tech_plus")
 
@@ -209,23 +200,18 @@ def nazology(*args) -> None:
         None
 
     """
-    article_contents = args[0]
-    article_hrefs = args[1]
-
     result: List[ArticleData] = []
-    data_counter = 0
-    for article_content in article_contents:
+    for article_content, article_href in zip(*args):
         date = re.findall(r"\d{4}\.\d{2}\.\d{2}\s\w{3}", article_content)
         filtered_data = article_content.split(date[0])
         title = filtered_data[1].replace("\"", "").replace("\n", "-").replace(" ", "")
 
         result.append(ArticleData(
             title=title,
-            url=article_hrefs[data_counter],
+            url=article_href,
             date=date[0],
             category=filtered_data[0],
         ))
-        data_counter += 1
 
     csv_writer(result, "nazology")
 
