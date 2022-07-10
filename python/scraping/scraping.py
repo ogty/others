@@ -217,10 +217,7 @@ def nazology(*args) -> None:
     for article_content in article_contents:
         date = re.findall(r"\d{4}\.\d{2}\.\d{2}\s\w{3}", article_content)
         filtered_data = article_content.split(date[0])
-        title = filtered_data[1] \
-            .replace("\"", "") \
-            .replace("\n", "-") \
-            .replace(" ", "")
+        title = filtered_data[1].replace("\"", "").replace("\n", "-").replace(" ", "")
 
         result.append(ArticleData(
             title=title,
