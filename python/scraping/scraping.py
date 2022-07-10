@@ -7,6 +7,7 @@ import sys
 import time
 import threading
 from typing import TypedDict, List
+from unicodedata import category
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
@@ -197,6 +198,41 @@ def tech_plus(*args) -> None:
     csv_writer(result, "tech_plus")
 
 
+@get_content("https://nazology.net/", "article-list__entry")
+def nazology(*args) -> None:
+    """get nazology data
+
+    Args:
+        args: args to pass to csv_writer
+
+    Returns:
+        None
+
+    """
+    article_contents = args[0]
+    article_hrefs = args[1]
+
+    result: List[ArticleData] = []
+    data_counter = 0
+    for article_content in article_contents:
+        date = re.findall(r"\d{4}\.\d{2}\.\d{2}\s\w{3}", article_content)
+        filtered_data = article_content.split(date[0])
+        title = filtered_data[1] \
+            .replace("\"", "") \
+            .replace("\n", "-") \
+            .replace(" ", "")
+
+        result.append(ArticleData(
+            title=title,
+            url=article_hrefs[data_counter],
+            date=date[0],
+            category=filtered_data[0],
+        ))
+        data_counter += 1
+
+    csv_writer(result, "nazology")
+
+
 class Job:
     """Job class
 
@@ -256,6 +292,7 @@ class Job:
 
         gigazine()
         tech_plus()
+        nazology()
 
         self.done = False
         t = threading.Thread(target=self.loading)
