@@ -300,7 +300,7 @@ if __name__ == "__main__":
     job = Job()
     job.get_article_data()
 
-    schedule.every(1).hour.do(job.get_article_data)
+    schedule.every(1).days.do(job.get_article_data)
     while True:
         schedule.run_pending()
         time.sleep(1)
