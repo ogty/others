@@ -11,7 +11,7 @@ Programs for learning about
 ```zsh
 $ pip3 install sphinx
 $ pwd # python
-$ sphinx-apidoc -F -H project -A Helve -V v1.0 -o ./scraping/docs scraping
+$ sphinx-apidoc -F -H project -A <your-name> -V v1.0 -o ./scraping/docs scraping
 $ # Edit python/scraping/conf.py
 $ sphinx-build ./scraping/docs ./scraping/docs/_build
 ```
@@ -25,10 +25,10 @@ $ sphinx-build ./scraping/docs ./scraping/docs/_build
 ```diff
 - # import os
 - # import sys
-- # sys.path.insert(0, '/Users/ogty/Desktop/others/python/scraping')
+- # sys.path.insert(0, '/Users/<username>/Desktop/others/python/scraping')
 + import os
 + import sys
-+ sys.path.insert(0, '/Users/ogty/Desktop/others/python/scraping')
++ sys.path.insert(0, '/Users/<username>/Desktop/others/python/scraping')
 ```
 
 ### Change 2
