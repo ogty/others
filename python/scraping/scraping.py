@@ -7,7 +7,6 @@ import sys
 import time
 import threading
 from typing import TypedDict, List
-from unicodedata import category
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
