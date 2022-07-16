@@ -258,7 +258,7 @@ class Job:
             if self.done:
                 break
 
-            sys.stdout.write(f'\rloading{self.count} ' + c.decode('unicode-escape'))
+            sys.stdout.write(f"\rloading{self.count} {c.decode('unicode-escape')}")
             sys.stdout.flush()
             time.sleep(0.1)
 
