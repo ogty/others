@@ -39,7 +39,7 @@ export const distanceCalculatorFromHome = distanceCalculator(
 const usersCurrentLatitude = 34.68639;
 const usersCurrentLongitude = 135.52;
 const distanceFromHome = distanceCalculatorFromHome(usersCurrentLatitude, usersCurrentLongitude);
-console.log(`${Math.round(distanceFromHome)}km`);
+console.log(`${Math.round(distanceFromHome)}km`); // 395km
 
 // --------------------------------------------------
 const numberOfTimesRepeated = 10;
