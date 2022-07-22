@@ -3,7 +3,10 @@ interface LocationOfUsersAddress {
     longitude: number;
 }
   
-function distanceCalculator(latitudeX: number, longitudeX: number): any {
+function distanceCalculator(
+    latitudeX: number,
+    longitudeX: number,
+): (latitudeY: number, longitudeY: number) => number {
     const R = Math.PI / 180;
     const lat1 = latitudeX * R;
     const lon1 = longitudeX * R;
@@ -14,11 +17,11 @@ function distanceCalculator(latitudeX: number, longitudeX: number): any {
         const d =
             6371 *
             Math.acos(
-            Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1) + Math.sin(lat1) * Math.sin(lat2),
-        );
+                  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1) + Math.sin(lat1) * Math.sin(lat2),
+            );
         return d;
     };
-  }
+}
   
 // Example: Tokyo
 const UserLocation: LocationOfUsersAddress = {
@@ -30,7 +33,7 @@ export const distanceCalculatorFromHome = distanceCalculator(
     UserLocation.longitude,
 );
 
-// Call from another file
+// Call from another file...
 // Example: import { distanceCalculatorFromHome } from './distanceCalculatorFromHome';
 // Example: Osaka
 const usersCurrentLatitude = 34.68639;
