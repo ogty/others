@@ -58,3 +58,28 @@ const pattern2 = ((f) => {
     return n === 1 ? 1 : n + sum(sum, n - 1);
 });
 console.log(pattern2(numberOfTimesRepeated)); // 55
+
+// --------------------------------------------------
+interface WrapperObject {
+    value: number;
+}
+
+function bind(w: WrapperObject, f: (v: number) => WrapperObject): WrapperObject {
+    const v = w.value;
+    const rw = f(v);
+    return rw;
+}
+function unit(v: number): WrapperObject {
+    return { value: v };
+}
+function inc(v: number): WrapperObject {
+    return unit(v + 1);
+}
+function double(v: number): WrapperObject {
+    return unit(v * 2);
+}
+
+const wrapper1 = unit(1);
+const wrapper2 = bind(wrapper1, inc);
+const wrapper3 = bind(wrapper2, double);
+console.log(wrapper3); // { value: 4 }
