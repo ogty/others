@@ -40,3 +40,21 @@ const usersCurrentLatitude = 34.68639;
 const usersCurrentLongitude = 135.52;
 const distanceFromHome = distanceCalculatorFromHome(usersCurrentLatitude, usersCurrentLongitude);
 console.log(`${Math.round(distanceFromHome)}km`);
+
+// --------------------------------------------------
+const numberOfTimesRepeated = 10;
+const pattern1 = ((f, n) => {
+    return f(f, n);
+})((sum: any, n: number) => {
+    return n === 1 ? 1 : n + sum(sum, n - 1);
+}, numberOfTimesRepeated);
+console.log(pattern1); // 55
+
+const pattern2 = ((f) => {
+    return (n: number) => {
+        return f(f, n);
+    };
+})((sum: any, n: number) => {
+    return n === 1 ? 1 : n + sum(sum, n - 1);
+});
+console.log(pattern2(numberOfTimesRepeated)); // 55
