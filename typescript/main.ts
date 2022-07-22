@@ -83,3 +83,10 @@ const wrapper1 = unit(1);
 const wrapper2 = bind(wrapper1, inc);
 const wrapper3 = bind(wrapper2, double);
 console.log(wrapper3); // { value: 4 }
+
+// --------------------------------------------------
+const compose = (g, f) => x => g(f(x));
+const secondInc = (x: number) => x + 1;
+const secondDouble = (x: number) => x * 2;
+const incDouble = compose(secondInc, secondDouble);
+console.log(incDouble(2)); // 5
