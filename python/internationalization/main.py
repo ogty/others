@@ -33,11 +33,6 @@ class LanguageSegmenter:
                     ensure_ascii=False,
                 )
 
-    def get_value(self, path: str, data: Dict[str, any]) -> any:
-        for key in path.split("."):
-            data = data[key]
-        return data
-    
     class Processer:
 
         def __init__(self, language: str):
