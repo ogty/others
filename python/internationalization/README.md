@@ -44,26 +44,6 @@ header.items
 
 ```
 
-main.tmp
-
-```
-
-</td>
-<td>
-
-```js
-
-{'あ': 0, 'い': 1}
-
-```
-
-</td>
-</tr>
-<tr></tr><tr>
-<td>
-
-```
-
 main.heroSentence
 
 ```
