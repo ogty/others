@@ -38,7 +38,7 @@ class LanguageSegmenter:
             data = data[key]
         return data[language]
     
-    def export_table(self, language: str) -> None:
+    def output_table(self, language: str) -> None:
         print("<table>")
         for path in LanguageSegmenter.breadcrumb_list:
             data = str(self.get_value(path, LanguageSegmenter.base_data, language))
@@ -82,4 +82,4 @@ class LanguageSegmenter:
 if __name__ == "__main__":
     segmenter = LanguageSegmenter(import_file_name="./sample.yaml", languages=["jp", "en"])
     segmenter.write("./public/locales")
-    segmenter.export_table("jp") # $ python3 main.py > README.md
+    segmenter.output_table("jp") # $ python3 main.py > README.md
