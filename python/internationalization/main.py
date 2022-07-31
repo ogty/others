@@ -39,9 +39,15 @@ class LanguageSegmenter:
         return data[language]
     
     def output_table(self, language: str) -> None:
+        # TODO
         print("<table>")
         for path in LanguageSegmenter.breadcrumb_list:
-            data = str(self.get_value(path, LanguageSegmenter.base_data, language))
+            data = self.get_value(path, LanguageSegmenter.base_data, language)
+            if isinstance(data, str):
+                data = f'"{data}"'
+            else:
+                data = json.loads(str(data).replace("'", '"'))
+                data = json.dumps(data, indent=4, ensure_ascii=False)
             print(f"<tr></tr><tr>\n<td>\n\n```\n\n{path}\n\n```\n\n</td>\n<td>\n\n```js\n\n{data}\n\n```\n\n</td>\n</tr>")
         print("</table>")
     
@@ -81,5 +87,5 @@ class LanguageSegmenter:
 
 if __name__ == "__main__":
     segmenter = LanguageSegmenter(import_file_name="./sample.yaml", languages=["jp", "en"])
-    segmenter.write("./public/locales")
     segmenter.output_table("jp") # $ python3 main.py > README.md
+    # segmenter.write("./public/locales")
