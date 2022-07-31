@@ -33,6 +33,18 @@ class LanguageSegmenter:
                     ensure_ascii=False,
                 )
 
+    def get_value(self, path: str, data: Dict[str, any], language: str) -> any:
+        for key in path.split("."):
+            data = data[key]
+        return data[language]
+    
+    def export_table(self, language: str) -> None:
+        print("<table>")
+        for path in LanguageSegmenter.breadcrumb_list:
+            data = str(self.get_value(path, LanguageSegmenter.base_data, language))
+            print(f"<tr></tr><tr>\n<td>\n\n```\n\n{path}\n\n```\n\n</td>\n<td>\n\n```js\n\n{data}\n\n```\n\n</td>\n</tr>")
+        print("</table>")
+    
     class Processer:
 
         def __init__(self, language: str):
@@ -70,3 +82,4 @@ class LanguageSegmenter:
 if __name__ == "__main__":
     segmenter = LanguageSegmenter(import_file_name="./sample.yaml", languages=["jp", "en"])
     segmenter.write("./public/locales")
+    segmenter.export_table("jp") # $ python3 main.py > README.md
