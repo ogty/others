@@ -5,6 +5,11 @@ from typing import Dict, List
 import yaml
 
 
+# TODO: I'll do it when I feel like it.
+#   - debug mode
+#   - automatic translation
+
+
 class LanguageSegmenter:
 
     base_data = {}
