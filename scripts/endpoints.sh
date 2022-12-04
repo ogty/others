@@ -13,6 +13,7 @@
 #    ○ Output format
 #        □ list(default)
 #        □ code
+#
 #    ○ Code type
 #        □ httpie(default)
 #        □ curl
