@@ -1,12 +1,14 @@
-# Usage
-# ▀▀▀▀▀▀
+# Description:
+#
+#     Script to create a markdown endpoint summary from a file directly under "src/pages/api"
+#
+# Usage:
 #
 #    ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────╮
 #    │  $ source endpoints.sh [output format] [code type]                                │
 #    ╰───────────────────────────────────────────────────────────────────────────────────╯
 #
-# Options
-# ▀▀▀▀▀▀▀▀
+# Options:
 #
 #    ○ Output format
 #        □ list(default)
@@ -15,8 +17,7 @@
 #        □ httpie(default)
 #        □ curl
 #
-# Examples
-# ▀▀▀▀▀▀▀▀▀
+# Examples:
 #
 #    ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────╮
 #    │  $ source endpoints.sh                                                            │
