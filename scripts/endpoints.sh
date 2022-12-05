@@ -11,10 +11,12 @@
 # Options:
 #
 #    ○ Output format
+#
 #        □ list(default)
 #        □ code
 #
 #    ○ Code type
+#
 #        □ httpie(default)
 #        □ curl
 #
@@ -24,6 +26,26 @@
 #    │  $ source endpoints.sh                                                            │
 #    │  $ source endpoints.sh code                                                       │
 #    │  $ source endpoints.sh code curl                                                  │
+#    ╰───────────────────────────────────────────────────────────────────────────────────╯
+#
+#    ▽ src
+#      ▽ pages
+#        ▽ api
+#        │ ▷ products
+#        │ ▽ users
+#        │ │  [id].ts
+#        │  users.ts
+#        │  search.ts
+#
+#    ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────╮
+#    │  $ source endpoints.sh                                                            │
+#    ╰───────────────────────────────────────────────────────────────────────────────────╯
+#
+#    ╭─ Markdown - List Type ────────────────────────────────────────────────────────────╮
+#    │  - [users](http://localhost:3000/api/users)                                       │
+#    │  - [users/:id](http://localhost:3000/api/users/:id)                               │
+#    │  - [search](http://localhost:3000/api/search)                                     │
+#    │  ...                                                                              │
 #    ╰───────────────────────────────────────────────────────────────────────────────────╯
 
 
