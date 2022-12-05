@@ -29,7 +29,7 @@
 #        │ ▷ posts       │ - [users/:id](http://localhost:3000/api/users/:id)            │
 #        │ ▽ users       │ - [search](http://localhost:3000/api/search)                  │
 #        │ │  [id].ts    │ ...                                                           │
-#        │  users.ts     │                                                               │
+#        │ │  index.ts   │                                                               │
 #        │  search.ts    │  $ source endpoints.sh > README.md                            │
 #        │  posts.ts     ╰───────────────────────────────────────────────────────────────╯
 #
