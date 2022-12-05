@@ -10,15 +10,9 @@
 #
 # Options:
 #
-#    ○ Output format
-#
-#        □ list(default)
-#        □ code
-#
-#    ○ Code type
-#
-#        □ httpie(default)
-#        □ curl
+#    ○ Output format            ○ Code type
+#        □ list(default)            □ httpie(default)
+#        □ code                     □ curl
 #
 # Examples:
 #
@@ -28,18 +22,16 @@
 #    │  $ source endpoints.sh code curl                                                  │
 #    ╰───────────────────────────────────────────────────────────────────────────────────╯
 #
-#    ▽ src
-#      ▽ pages
-#        ▽ api
-#        │ ▷ products
-#        │ ▽ users
-#        │ │  [id].ts
-#        │  users.ts
-#        │  search.ts
-#
-#    ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────╮
-#    │  $ source endpoints.sh                                                            │
-#    ╰───────────────────────────────────────────────────────────────────────────────────╯
+#    ▽ src               ╭─ Zsh ─────────────────────────────────────────────────────────╮
+#      ▽ pages           │  $ source endpoints.sh                                        │
+#        ▽ api           │                                                               │
+#        │ ▷ products    │ - [users](http://localhost:3000/api/users)                    │
+#        │ ▷ posts       │ - [users/:id](http://localhost:3000/api/users/:id)            │
+#        │ ▽ users       │ - [search](http://localhost:3000/api/search)                  │
+#        │ │  [id].ts    │ ...                                                           │
+#        │  users.ts     │                                                               │
+#        │  search.ts    │  $ source endpoints.sh > README.md                            │
+#        │  posts.ts     ╰───────────────────────────────────────────────────────────────╯
 #
 #    ╭─ Markdown - List Type ────────────────────────────────────────────────────────────╮
 #    │  - [users](http://localhost:3000/api/users)                                       │
