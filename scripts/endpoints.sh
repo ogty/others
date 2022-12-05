@@ -53,6 +53,7 @@ for file in $files; do
     endpoints=$(echo $file \
     | sed -r 's/(.+)\[(.+)\].ts/\1:\2/' \
     | sed -r 's/src\/pages/http:\/\/localhost:3000/' \
+    | sed -r 's/\/index//' \
     | sed -r $EXTENSION_PATTERN)
 
     if [ "$1" = "code" ]; then
