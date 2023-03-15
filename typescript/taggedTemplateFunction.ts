@@ -52,7 +52,7 @@ class GenerateHeader {
     return this.common(strings, data);
   }
 
-  svelte(strings: TemplateStringsArray, ...values: (Prop[] | string)[]) {
+  svelte(strings: TemplateStringsArray, ...values: (Prop[] | string)[]): string {
     const [props, code = ""] = values;
     const [declarations] = this.processor(props as Prop[]);
     const data = [declarations.join("\n"), code] as string[];
