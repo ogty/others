@@ -43,9 +43,9 @@ class GenerateHeader {
 
   astro(strings: TemplateStringsArray, ...values: (Prop[] | string)[]): string {
     const [props, _, code = ""] = values;
-    const [interfaceProps, variableProps] = this.processor(props as Prop[]);
+    const [propDefinitions, variableProps] = this.processor(props as Prop[]);
     const data = [
-      interfaceProps.join("\n"),
+      propDefinitions.join("\n"),
       variableProps.join(",\n"),
       code,
     ] as string[];
@@ -61,9 +61,9 @@ class GenerateHeader {
 
   tsx(strings: TemplateStringsArray, ...values: (Prop[] | string)[]): string {
     const [props, componentName, _, code] = values;
-    const [interfaceProps, variableProps] = this.processor(props as Prop[]);
+    const [propDefinitions, variableProps] = this.processor(props as Prop[]);
     const data = [
-      interfaceProps.join("\n"),
+      propDefinitions.join("\n"),
       `|${componentName}|`,
       variableProps.join(",\n"),
       code,
