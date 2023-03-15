@@ -7,7 +7,7 @@ class GenerateHeader {
   propDefinitionTemplate = "\t${name}: ${type};";
   variableTemplate = "\t${name} = ${value}";
 
-  common(templateParts: string[], data: string[]): string {
+  common(templateParts: TemplateStringsArray, data: string[]): string {
     const result: string[] = [];
     const maxLength = Math.max(templateParts.length, data.length);
     for (let i = 0; i < maxLength; i += 1) {
@@ -41,29 +41,33 @@ class GenerateHeader {
     return [propDefinitions, variableProps];
   }
 
-  astro(strings: any, ...values: any[]): string {
+  astro(strings: TemplateStringsArray, ...values: (Prop[] | string)[]): string {
     const [props, _, code = ""] = values;
-    const [interfaceProps, variableProps] = this.processor(props);
-    const data = [interfaceProps.join("\n"), variableProps.join(",\n"), code];
+    const [interfaceProps, variableProps] = this.processor(props as Prop[]);
+    const data = [
+      interfaceProps.join("\n"),
+      variableProps.join(",\n"),
+      code,
+    ] as string[];
     return this.common(strings, data);
   }
 
-  svelte(strings: any, ...values: any[]) {
+  svelte(strings: TemplateStringsArray, ...values: (Prop[] | string)[]) {
     const [props, code = ""] = values;
-    const [declarations] = this.processor(props);
-    const data = [declarations.join("\n"), code];
+    const [declarations] = this.processor(props as Prop[]);
+    const data = [declarations.join("\n"), code] as string[];
     return this.common(strings, data);
   }
 
-  tsx(strings: any, ...values: any[]): string {
+  tsx(strings: TemplateStringsArray, ...values: (Prop[] | string)[]): string {
     const [props, componentName, _, code] = values;
-    const [interfaceProps, variableProps] = this.processor(props);
+    const [interfaceProps, variableProps] = this.processor(props as Prop[]);
     const data = [
       interfaceProps.join("\n"),
       `$${componentName}$`,
       variableProps.join(",\n"),
       code,
-    ];
+    ] as string[];
     return this.common(strings, data).replace(/\$([^\$]+)\$/g, "$1");
   }
 }
@@ -106,7 +110,6 @@ console.log(astroHeader);
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 */
 
-
 // --- Svelte ---
 generateHeader.propDefinitionTemplate = "\texport let ${name} = ${value};";
 const svelteHeader = generateHeader.svelte`<script lang="ts">${props}</script>`;
@@ -120,7 +123,6 @@ console.log(svelteHeader);
 │ </script>                                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 */
-
 
 // --- React ---
 const patternOneComponentName = "ComponentName";
@@ -155,7 +157,6 @@ console.log(tsxPatternOne);
 │ }                                                                                                │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 */
-
 
 // The second way to write React components
 const patternTwoComponentName = "GitHub";
