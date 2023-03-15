@@ -64,11 +64,11 @@ class GenerateHeader {
     const [interfaceProps, variableProps] = this.processor(props as Prop[]);
     const data = [
       interfaceProps.join("\n"),
-      `$${componentName}$`,
+      `|${componentName}|`,
       variableProps.join(",\n"),
       code,
     ] as string[];
-    return this.common(strings, data).replace(/\$([^\$]+)\$/g, "$1");
+    return this.common(strings, data).replace(/\n\|(.+)\|\n/g, "$1");
   }
 }
 
